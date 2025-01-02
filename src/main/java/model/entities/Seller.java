@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Seller implements Serializable{
@@ -22,6 +25,8 @@ public class Seller implements Serializable{
 	private Date birthDate; 
 	private Double baseSalary;  
 	
+	@ManyToOne
+	@JoinColumn(name = "department_id")
 	private Department department; 
 	
 	public Seller() {

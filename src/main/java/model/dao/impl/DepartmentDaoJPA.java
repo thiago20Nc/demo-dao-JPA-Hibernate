@@ -13,8 +13,8 @@ import model.entities.Department;
 public class DepartmentDaoJPA implements DepartmentDao{
 
 	@Override
-	public void insert(Department obj) {
-	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("dao-jpa-hibernate");
+	public void insert(Department obj) { 
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dao-jpa-hibernate");
 	    EntityManager em = emf.createEntityManager();
 	    
 	    try {
@@ -37,8 +37,7 @@ public class DepartmentDaoJPA implements DepartmentDao{
 	}		
 
 	@Override
-	public void update(Department obj) {
-		
+	public void update(Department obj) {	
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dao-jpa-hibernate");
 		EntityManager em = emf.createEntityManager(); 
 		
@@ -63,7 +62,6 @@ public class DepartmentDaoJPA implements DepartmentDao{
 
 	@Override
 	public void deleteById(Integer id) {
-		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dao-jpa-hibernate");
 		EntityManager em = emf.createEntityManager(); 
 		
@@ -91,7 +89,6 @@ public class DepartmentDaoJPA implements DepartmentDao{
 
 	@Override
 	public Department findById(Integer id) {
-		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dao-jpa-hibernate");
 		EntityManager em = emf.createEntityManager();
 		
