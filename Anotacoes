@@ -1,0 +1,65 @@
+	//-----------------------------------------------------------------------------------//
+		Inserindo dados
+		
+		Instancias da classe/Entidade Pessoa
+		Pessoa p1 = new Pessoa(null, "Carlos da Silva", "carlos@gmail.com"); 
+		Pessoa p2 = new Pessoa(null, "Maria Silvia", "msilvia@gmail.com"); 
+		Pessoa p3 = new Pessoa(null, "Cristovão Borges", "cristovao@gmail.com"); 
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		em.persist(p1);
+		em.persist(p2);
+		em.persist(p3);
+		em.getTransaction().commit();
+	
+		System.out.println("Pronto");
+		
+		em.close();
+		emf.close();
+	//-----------------------------------------------------------------------------------//
+		Buscando Dados
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		EntityManager em = emf.createEntityManager();
+		
+		Pessoa P = em.find(Pessoa.class, 2);
+		
+		System.out.println(P);
+	
+		System.out.println("Pronto");
+		em.close();
+		emf.close();
+	//-----------------------------------------------------------------------------------//
+		Removendo Dados
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		Pessoa P = em.find(Pessoa.class, 2);
+		em.remove(P);
+		em.getTransaction().commit();
+		
+		System.out.println("Pronto");
+		em.close();
+		emf.close(); 
+	//-----------------------------------------------------------------------------------//
+		Atualizando Dados
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		Pessoa P = em.find(Pessoa.class, 1);
+		P.setEmail("carlos@hotmail.com"); 
+		em.merge(P);
+		em.getTransaction().commit();
+		
+		System.out.println("Pronto");
+		em.close();
+		emf.close(); 
+	//-----------------------------------------------------------------------------------//	
+		
+	
